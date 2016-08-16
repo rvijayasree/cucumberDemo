@@ -8,7 +8,8 @@ import cucumber.api.java.Before;
  * Created by Vijayasree on 15/08/16.
  */
 public class Hooks {
-DriveManager driveManager=new DriveManager();
+
+    DriveManager driveManager=new DriveManager();
 
     @Before
     public void setUp(){
@@ -19,4 +20,5 @@ DriveManager driveManager=new DriveManager();
     public void tearDown(){
         driveManager.closeBrowser();
     }
+
 }

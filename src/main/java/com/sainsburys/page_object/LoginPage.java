@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 /**
- * Created by rakesh on 8/16/2016.
+ * Created by Vijaya on 8/16/2016.
  */
 public class LoginPage extends DriveManager {
 

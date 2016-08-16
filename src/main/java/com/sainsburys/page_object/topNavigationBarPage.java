@@ -1,27 +1,38 @@
 package com.sainsburys.page_object;
 
 import com.sainsburys.DriveManager;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 /**
- * Created by rakesh on 8/16/2016.
+ * Created by Vijaya on 8/16/2016.
  */
 public class topNavigationBarPage extends DriveManager {
 
-    @FindBy(css = "#utilityNavLoginLink>span")
+    private static final By LOGIN_LINK = By.xpath(".//a[@id='utilityNavLoginLink']");
+
+    @FindBy(xpath= ".//a[@id='utilityNavLoginLink']")
     private WebElement loginLink;
 
     @FindBy(css = "#test>span")
-    public WebElement groLink;
+    private WebElement groLink;
 
     @FindBy(linkText = "Bank account")
-    public WebElement bankAccountLink;
+    private WebElement bankAccountLink;
 
-    @FindBy(className = "loggedOutLink")
-    public WebElement logOutLink;
+    @FindBy(css = ".loggedOutLink")
+    private WebElement logOutLink;
+
+    @FindBy(xpath = ".//*[@id='globalHeader']//a[contains(@href, '/MyAccount')]")
+    private WebElement actualFullUserName;
+
+    private WebDriver driver;
+
 
     public void goToLoginPage() {
+        //driver.findElement(LOGIN_LINK).click();
         loginLink.click();
         groLink.click();
     }
@@ -35,5 +46,13 @@ public class topNavigationBarPage extends DriveManager {
         return logOutLink.isDisplayed();
     }
 
+    public boolean isUserNameDisplayed(String expectedFullUserName){
+        System.out.println(actualFullUserName.getText());
+        if((actualFullUserName.getText()).equalsIgnoreCase(expectedFullUserName)){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-}
+ }

@@ -28,8 +28,8 @@ public class LoginDefs {
     }
 
     @When("^I fill \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void i_fill_and(String userName, String password) {
-        loginPage.doLogin(userName, password);
+    public void i_fill_and(String email, String password) {
+        loginPage.doLogin(email, password);
     }
 
     @When("^I click login$")
@@ -42,10 +42,9 @@ public class LoginDefs {
         Assert.assertTrue(topNavigationBarPage.isLogoutDisplayed());
     }
 
-    @Then("^I should be able to see \"([^\"]*)\"$")
-    public void i_should_be_able_to_see(String message) {
-
+    @Then("^I see \"([^\"]*)\" on right top corner$")
+    public void i_see_on_right_top_corner(String usersFullName) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        Assert.assertTrue(topNavigationBarPage.isUserNameDisplayed(usersFullName));
     }
-
-
 }
