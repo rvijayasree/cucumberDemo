@@ -9,10 +9,10 @@ import org.openqa.selenium.support.FindBy;
  */
 public class topNavigationBarPage extends DriveManager {
 
-    @FindBy(linkText = "Log in/Register")
+    @FindBy(css = "#utilityNavLoginLink>span")
     private WebElement loginLink;
 
-    @FindBy(linkText = "Groceries account")
+    @FindBy(css = "#test>span")
     public WebElement groLink;
 
     @FindBy(linkText = "Bank account")

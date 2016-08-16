@@ -1,5 +1,6 @@
 package se.thinkcode.steps;
 
+import com.sainsburys.page_object.CatePage;
 import com.sainsburys.page_object.topNavigationBarPage;
 import com.sainsburys.page_object.LoginPage;
 import cucumber.api.java.en.Given;
@@ -11,8 +12,15 @@ import org.junit.Assert;
  * Created by Asus on 15/08/2016.
  */
 public class LoginDefs {
-    LoginPage loginPage = new LoginPage();
-    topNavigationBarPage topNavigationBarPage = new topNavigationBarPage();
+    LoginPage loginPage;
+    topNavigationBarPage topNavigationBarPage;
+    CatePage catePage;
+
+    public LoginDefs(CatePage diCatePage,LoginPage diLoginPage,topNavigationBarPage diTopNavigationBarPage) {
+        this.loginPage=diLoginPage;
+        this.topNavigationBarPage=diTopNavigationBarPage;
+        this.catePage=diCatePage;
+    }
 
     @Given("^I navigate to login page$")
     public void i_am_on_login_page() {
